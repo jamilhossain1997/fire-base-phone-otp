@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import "firebase/auth";
+import { getAuth } from "firebase/auth";
 
 
 
@@ -15,5 +15,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+getAuth().settings.appVerificationDisabledForTesting = true;
 
-export const auth=firebase.auth();
+const auth = getAuth(app);
+
+export { auth };
